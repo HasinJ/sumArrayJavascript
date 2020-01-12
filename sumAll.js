@@ -1,13 +1,28 @@
-const sumAll = function(start,end) {
-  if (start<0 || end<0 || typeof(start)!=="number" || typeof(end)!=="number") {
+const sumAll = function(first,second) {
+  if (first<0 || second<0 || typeof(first)!=="number" || typeof(second)!=="number") {
     return "ERROR";
+  }else if (first>second) {
+    return bigNumberFirst(first,second);
+  }else if (first<second) {
+    return littleNumberFirst(first,second)
   }
 
-  let result = 0;
-  for (; start <= end; start++) {
-    result += start
+  function littleNumberFirst(start,end){
+    let result = 0;
+    for (; start <= end; start++) {
+      result += start
+    }
+    return result;
   }
-  return result;
+
+  function bigNumberFirst(start,end){
+    let result = 0;
+    for (; start >= end; start--) {
+      result += start
+    }
+    return result;
+  }
+
 
 }
 
